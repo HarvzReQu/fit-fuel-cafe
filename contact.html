@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Fit &amp; Fuel Cafe</title>
+    <meta name="description" content="Contact Fit &amp; Fuel Cafe for inquiries, visits, or membership information." />
+    <link rel="preload" as="image" href="assets/fit-fuel-hero.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Fit and Fuel Cafe home">
+        <span class="brand-mark">F</span>
+        <span>Fit &amp; Fuel Cafe</span>
+      </a>
+      <nav class="top-nav" aria-label="Primary navigation">
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#visit">Visit</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-contact">
+        <div class="hero-overlay"></div>
+        <div class="container hero-copy narrow">
+          <p class="eyebrow">Contact page</p>
+          <h1>Let us know what you need.</h1>
+          <p class="intro">Ask about memberships, cafe options, visit schedules, or the business concept.</p>
+          <div class="hero-actions">
+            <a href="index.html" class="btn btn-secondary">Back to home</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container info-grid contact-info-grid">
+          <article class="info-card">
+            <h3>Phone</h3>
+            <p>(555) 010-2024</p>
+          </article>
+          <article class="info-card">
+            <h3>Email</h3>
+            <p>info@fitandfuelcafe.com</p>
+          </article>
+          <article class="info-card">
+            <h3>Location</h3>
+            <p>123 Wellness Avenue<br />Downtown District</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-muted">
+        <div class="container form-shell">
+          <div>
+            <p class="eyebrow dark">Message us</p>
+            <h2>Send a quick note</h2>
+            <p>Choose the topic that fits best and your email app will open with the message prepared.</p>
+          </div>
+          <form id="contactForm" class="inquiry-form">
+            <div class="field-row">
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+            </div>
+            <label>
+              Topic
+              <select name="topic" required>
+                <option value="">Select a topic</option>
+                <option value="Membership">Membership</option>
+                <option value="Visit">Visit</option>
+                <option value="Cafe">Cafe</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+            <label>
+              Message
+              <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary">Send message</button>
+            <p id="contactMessage" class="form-message" role="status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Fit &amp; Fuel Cafe - practical wellness and refreshment in one place.</p>
+    </footer>
+
+    <script>
+      const contactForm = document.getElementById('contactForm');
+      const contactMessage = document.getElementById('contactMessage');
+
+      contactForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const data = new FormData(contactForm);
+        const name = data.get('name')?.toString().trim() || 'a visitor';
+        const email = data.get('email')?.toString().trim() || 'no email provided';
+        const topic = data.get('topic')?.toString().trim() || 'general inquiry';
+        const message = data.get('message')?.toString().trim() || 'No additional details provided.';
+
+        const subject = encodeURIComponent(`Contact request from ${name} about ${topic}`);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nTopic: ${topic}\n\nMessage:\n${message}`);
+
+        window.location.href = `mailto:info@fitandfuelcafe.com?subject=${subject}&body=${body}`;
+        contactMessage.textContent = 'Your email app should open with your message ready to send.';
+        contactForm.reset();
+      });
+    </script>
+  </body>
+</html>
