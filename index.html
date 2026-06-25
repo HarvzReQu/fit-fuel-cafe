@@ -20,6 +20,7 @@
       <nav class="top-nav" aria-label="Primary navigation">
         <a href="#experience">Experience</a>
         <a href="#services">Services</a>
+        <a href="#staff">Staff</a>
         <a href="#visit">Visit</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -106,20 +107,100 @@
             <article class="service-card">
               <span class="service-tag">Try it</span>
               <h3>Day Pass</h3>
-              <p>For first-time visitors, quick workouts, and people who want a flexible wellness stop.</p>
-              <strong>Workout access plus cafe convenience</strong>
+              <p>For first-time visitors, quick workouts, or customers who only need the gym for one day.</p>
+              <strong>Includes same-day gym access, locker use, and cafe seating.</strong>
             </article>
             <article class="service-card featured-service">
               <span class="service-tag">Best value</span>
               <h3>Monthly Membership</h3>
-              <p>For regular gym users who want consistent access and a familiar place to reset.</p>
-              <strong>Ideal for weekday routines</strong>
+              <p>For regular members who train several times a week and want predictable access without paying per visit.</p>
+              <strong>Includes gym access, basic progress check-ins, and member cafe discounts.</strong>
             </article>
             <article class="service-card">
               <span class="service-tag">Quick stop</span>
               <h3>Cafe Combo</h3>
-              <p>For customers who need refreshments, seating, and a convenient place to wait or meet.</p>
-              <strong>Great for students and workers</strong>
+              <p>For customers who want a drink or snack with a short gym session, stretch, or cool-down visit.</p>
+              <strong>Great for students, workers, and light-training days.</strong>
+            </article>
+          </div>
+          <div class="membership-note">
+            <h3>How membership works</h3>
+            <p>
+              Membership is meant to stay simple: choose a pass, check staff availability, then request the coach or barista you prefer. Coach sessions are scheduled by time slot so the gym floor stays manageable. Cafe orders can be prepared by the barista on duty when your visit starts, during your workout, or after your cool-down.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="staff" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow dark">Choose your staff</p>
+            <h2>Coaches and baristas on duty</h2>
+            <p class="section-lede">
+              Customers can request a preferred coach for training guidance and a preferred barista for drinks. Final assignment depends on the day, time, and current bookings.
+            </p>
+          </div>
+          <div class="staff-grid">
+            <article class="staff-card coach-card">
+              <span class="service-tag">Coach</span>
+              <h3>Mia Santos</h3>
+              <p>Strength basics, beginner routines, posture checks, and safe equipment setup.</p>
+              <dl>
+                <div>
+                  <dt>Duty</dt>
+                  <dd>Mon, Wed, Fri</dd>
+                </div>
+                <div>
+                  <dt>Time</dt>
+                  <dd>6:00 AM - 2:00 PM</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="staff-card coach-card">
+              <span class="service-tag">Coach</span>
+              <h3>Andre Cruz</h3>
+              <p>Weight training, cardio plans, monthly progress checks, and goal-based coaching.</p>
+              <dl>
+                <div>
+                  <dt>Duty</dt>
+                  <dd>Tue, Thu, Sat</dd>
+                </div>
+                <div>
+                  <dt>Time</dt>
+                  <dd>1:00 PM - 9:00 PM</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="staff-card barista-card">
+              <span class="service-tag">Barista</span>
+              <h3>Lena Reyes</h3>
+              <p>Iced coffee, protein shakes, fruit coolers, and pre-workout drink prep.</p>
+              <dl>
+                <div>
+                  <dt>Duty</dt>
+                  <dd>Mon - Thu</dd>
+                </div>
+                <div>
+                  <dt>Time</dt>
+                  <dd>7:00 AM - 3:00 PM</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="staff-card barista-card">
+              <span class="service-tag">Barista</span>
+              <h3>Nico Tan</h3>
+              <p>Espresso drinks, smoothies, sports drinks, and after-workout refreshers.</p>
+              <dl>
+                <div>
+                  <dt>Duty</dt>
+                  <dd>Fri - Sun</dd>
+                </div>
+                <div>
+                  <dt>Time</dt>
+                  <dd>10:00 AM - 6:00 PM</dd>
+                </div>
+              </dl>
             </article>
           </div>
         </div>
@@ -190,6 +271,43 @@
                 <option value="Other">Other</option>
               </select>
             </label>
+            <div class="field-row">
+              <label>
+                Preferred coach
+                <select name="coach">
+                  <option value="No coach preference">No coach preference</option>
+                  <option value="Mia Santos - Mon, Wed, Fri, 6:00 AM - 2:00 PM">Mia Santos - Mon/Wed/Fri, 6 AM - 2 PM</option>
+                  <option value="Andre Cruz - Tue, Thu, Sat, 1:00 PM - 9:00 PM">Andre Cruz - Tue/Thu/Sat, 1 PM - 9 PM</option>
+                </select>
+              </label>
+              <label>
+                Preferred barista
+                <select name="barista">
+                  <option value="No barista preference">No barista preference</option>
+                  <option value="Lena Reyes - Mon to Thu, 7:00 AM - 3:00 PM">Lena Reyes - Mon-Thu, 7 AM - 3 PM</option>
+                  <option value="Nico Tan - Fri to Sun, 10:00 AM - 6:00 PM">Nico Tan - Fri-Sun, 10 AM - 6 PM</option>
+                </select>
+              </label>
+            </div>
+            <div class="field-row">
+              <label>
+                Preferred day
+                <select name="visitDay">
+                  <option value="Flexible day">Flexible day</option>
+                  <option value="Monday">Monday</option>
+                  <option value="Tuesday">Tuesday</option>
+                  <option value="Wednesday">Wednesday</option>
+                  <option value="Thursday">Thursday</option>
+                  <option value="Friday">Friday</option>
+                  <option value="Saturday">Saturday</option>
+                  <option value="Sunday">Sunday</option>
+                </select>
+              </label>
+              <label>
+                Preferred time
+                <input type="time" name="visitTime" />
+              </label>
+            </div>
             <label>
               Message
               <textarea name="message" rows="5" placeholder="Tell us what you would like to know..." required></textarea>
@@ -216,10 +334,14 @@
         const name = data.get('name')?.toString().trim() || 'a visitor';
         const email = data.get('email')?.toString().trim() || 'no email provided';
         const interest = data.get('interest')?.toString().trim() || 'general inquiry';
+        const coach = data.get('coach')?.toString().trim() || 'No coach preference';
+        const barista = data.get('barista')?.toString().trim() || 'No barista preference';
+        const visitDay = data.get('visitDay')?.toString().trim() || 'Flexible day';
+        const visitTime = data.get('visitTime')?.toString().trim() || 'Flexible time';
         const message = data.get('message')?.toString().trim() || 'No additional details provided.';
 
         const subject = encodeURIComponent(`New inquiry from ${name} about ${interest}`);
-        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nInterest: ${interest}\n\nMessage:\n${message}`);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nInterest: ${interest}\nPreferred coach: ${coach}\nPreferred barista: ${barista}\nPreferred visit: ${visitDay}, ${visitTime}\n\nMessage:\n${message}`);
 
         window.location.href = `mailto:info@fitandfuelcafe.com?subject=${subject}&body=${body}`;
         formMessage.textContent = 'Your email app should open with your inquiry ready to send.';

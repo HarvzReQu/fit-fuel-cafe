@@ -311,6 +311,7 @@ h3 {
 
 .feature-grid,
 .service-grid,
+.staff-grid,
 .info-grid {
   display: grid;
   gap: 18px;
@@ -325,8 +326,13 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.staff-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .feature-card,
 .service-card,
+.staff-card,
 .info-card {
   position: relative;
   overflow: hidden;
@@ -378,6 +384,7 @@ h3 {
 
 .feature-card p,
 .service-card p,
+.staff-card p,
 .info-card p {
   color: var(--muted);
 }
@@ -419,6 +426,64 @@ h3 {
 
 .service-card strong {
   color: var(--teal-dark);
+}
+
+.membership-note {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 24px;
+  border: 1px solid rgba(8, 117, 104, 0.22);
+  border-left: 5px solid var(--teal);
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 12px 30px rgba(24, 31, 38, 0.06);
+}
+
+.membership-note p,
+.section-lede {
+  margin: 0;
+  color: var(--muted);
+}
+
+.staff-card {
+  display: grid;
+  gap: 12px;
+}
+
+.coach-card {
+  border-top: 5px solid var(--teal);
+}
+
+.barista-card {
+  border-top: 5px solid var(--citrus);
+}
+
+.staff-card dl {
+  display: grid;
+  gap: 10px;
+  margin: 6px 0 0;
+}
+
+.staff-card dl div {
+  display: grid;
+  gap: 2px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.staff-card dt {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.staff-card dd {
+  margin: 0;
+  color: var(--teal-dark);
+  font-weight: 850;
 }
 
 .visit-copy {
@@ -549,6 +614,7 @@ textarea:focus {
 
   .feature-grid,
   .service-grid,
+  .staff-grid,
   .info-grid,
   .field-row {
     grid-template-columns: 1fr;
@@ -597,6 +663,8 @@ textarea:focus {
 
   .feature-card,
   .service-card,
+  .staff-card,
+  .membership-note,
   .info-card,
   .inquiry-form {
     padding: 18px;
