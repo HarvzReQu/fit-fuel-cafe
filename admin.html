@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fit &amp; Fuel Cafe Admin System</title>
+    <meta name="description" content="A lightweight static admin dashboard for Fit &amp; Fuel Cafe operations." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Fit and Fuel Cafe home">
+        <span class="brand-mark">F</span>
+        <span>Fit &amp; Fuel Cafe</span>
+      </a>
+      <nav class="top-nav" aria-label="Primary navigation">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#staff">Staff</a>
+        <a href="index.html#menu">Menu</a>
+        <a href="index.html#inquiry">Booking</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-contact">
+        <div class="hero-overlay"></div>
+        <div class="container hero-copy narrow">
+          <p class="eyebrow">Operations view</p>
+          <h1>Daily business system.</h1>
+          <p class="intro">Track local booking requests, staff duty notes, vending stock, and maintenance checks in one practical view.</p>
+          <div class="hero-actions">
+            <a href="index.html#inquiry" class="btn btn-secondary">Open booking form</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container dashboard-grid">
+          <article class="dashboard-card">
+            <p class="eyebrow dark">Today</p>
+            <h2>Operations snapshot</h2>
+            <div class="ops-metrics">
+              <div>
+                <span id="requestCount">0</span>
+                <p>saved requests</p>
+              </div>
+              <div>
+                <span>2</span>
+                <p>staff roles</p>
+              </div>
+              <div>
+                <span>6</span>
+                <p>menu items</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="dashboard-card">
+            <p class="eyebrow dark">Reminder</p>
+            <h2>Admin note</h2>
+            <p>
+              This is a lightweight static dashboard. Requests saved here are stored in this browser only. For real operations, connect the booking form to Google Sheets, Airtable, Supabase, or another database.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-muted">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow dark">Bookings</p>
+            <h2>Recent local requests</h2>
+          </div>
+          <div class="request-toolbar">
+            <button class="btn btn-primary" id="exportRequests" type="button">Download CSV</button>
+            <button class="btn btn-quiet" id="clearRequests" type="button">Clear local requests</button>
+          </div>
+          <div class="request-list" id="requestList">
+            <article class="request-card">
+              <h3>No requests yet</h3>
+              <p>Submit the booking form on the home page to see a saved request here.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container ops-grid">
+          <article class="ops-card">
+            <h3>Staff duty plan</h3>
+            <ul>
+              <li>Mia Santos: Mon, Wed, Fri - 6:00 AM to 2:00 PM</li>
+              <li>Andre Cruz: Tue, Thu, Sat - 1:00 PM to 9:00 PM</li>
+              <li>Lena Reyes: Mon to Thu - 7:00 AM to 3:00 PM</li>
+              <li>Nico Tan: Fri to Sun - 10:00 AM to 6:00 PM</li>
+            </ul>
+          </article>
+
+          <article class="ops-card">
+            <h3>Vending stock watch</h3>
+            <ul>
+              <li>Water and sports drinks: check before opening</li>
+              <li>Protein shakes: restock when below 12 bottles</li>
+              <li>Wraps and oat bars: review expiry dates daily</li>
+              <li>Coffee supplies: confirm cups, lids, and beans per shift</li>
+            </ul>
+          </article>
+
+          <article class="ops-card">
+            <h3>Maintenance checklist</h3>
+            <ul>
+              <li>Inspect treadmills and weights before peak hours</li>
+              <li>Clean benches, handles, tables, and vending screens</li>
+              <li>Check restroom, lighting, and air conditioning</li>
+              <li>Log damaged equipment before allowing use</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Fit &amp; Fuel Cafe - operations, booking, and daily readiness.</p>
+    </footer>
+
+    <script>
+      const requestList = document.getElementById('requestList');
+      const requestCount = document.getElementById('requestCount');
+      const exportRequests = document.getElementById('exportRequests');
+      const clearRequests = document.getElementById('clearRequests');
+
+      function getRequests() {
+        return JSON.parse(localStorage.getItem('fitFuelRequests') || '[]');
+      }
+
+      function renderRequests() {
+        const requests = getRequests();
+        requestCount.textContent = requests.length;
+
+        if (!requests.length) {
+          requestList.innerHTML = '<article class="request-card"><h3>No requests yet</h3><p>Submit the booking form on the home page to see a saved request here.</p></article>';
+          return;
+        }
+
+        requestList.innerHTML = requests.map(function (request) {
+          return `
+            <article class="request-card">
+              <h3>${escapeHtml(request.name)}</h3>
+              <p><strong>Created:</strong> ${escapeHtml(request.createdAt)}</p>
+              <p><strong>Email:</strong> ${escapeHtml(request.email)}</p>
+              <p><strong>Pass:</strong> ${escapeHtml(request.pass)}</p>
+              <p><strong>Visit:</strong> ${escapeHtml(request.visitDay)}, ${escapeHtml(request.visitTime)}</p>
+              <p><strong>Coach:</strong> ${escapeHtml(request.coach)}</p>
+              <p><strong>Barista:</strong> ${escapeHtml(request.barista)}</p>
+              <p><strong>Program:</strong> ${escapeHtml(request.program)}</p>
+              <p><strong>Drink:</strong> ${escapeHtml(request.drink)}</p>
+              <p><strong>Goal:</strong> ${escapeHtml(request.goal)}</p>
+            </article>
+          `;
+        }).join('');
+      }
+
+      function escapeHtml(value) {
+        return String(value || '').replace(/[&<>"']/g, function (char) {
+          return {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+          }[char];
+        });
+      }
+
+      function downloadCsv() {
+        const requests = getRequests();
+        const headers = ['createdAt', 'name', 'email', 'pass', 'program', 'coach', 'barista', 'visitDay', 'visitTime', 'drink', 'goal'];
+        const lines = [
+          headers.join(','),
+          ...requests.map(function (request) {
+            return headers.map(function (key) {
+              return `"${String(request[key] || '').replaceAll('"', '""')}"`;
+            }).join(',');
+          })
+        ];
+        const blob = new Blob([lines.join('\n')], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'fit-fuel-requests.csv';
+        link.click();
+        URL.revokeObjectURL(url);
+      }
+
+      exportRequests.addEventListener('click', downloadCsv);
+      clearRequests.addEventListener('click', function () {
+        localStorage.removeItem('fitFuelRequests');
+        renderRequests();
+      });
+
+      renderRequests();
+    </script>
+  </body>
+</html>

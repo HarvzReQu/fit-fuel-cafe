@@ -237,6 +237,12 @@ h3 {
   color: var(--teal-dark);
 }
 
+.btn-quiet {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--teal-dark);
+}
+
 .hero-panel {
   display: grid;
   gap: 12px;
@@ -312,6 +318,11 @@ h3 {
 .feature-grid,
 .service-grid,
 .staff-grid,
+.menu-grid,
+.program-grid,
+.faq-grid,
+.dashboard-grid,
+.ops-grid,
 .info-grid {
   display: grid;
   gap: 18px;
@@ -330,9 +341,26 @@ h3 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.menu-grid,
+.program-grid,
+.faq-grid,
+.ops-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dashboard-grid {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+}
+
 .feature-card,
 .service-card,
 .staff-card,
+.menu-card,
+.program-card,
+.faq-item,
+.dashboard-card,
+.ops-card,
+.request-card,
 .info-card {
   position: relative;
   overflow: hidden;
@@ -385,6 +413,12 @@ h3 {
 .feature-card p,
 .service-card p,
 .staff-card p,
+.menu-card p,
+.program-card p,
+.faq-item p,
+.dashboard-card p,
+.ops-card p,
+.request-card p,
 .info-card p {
   color: var(--muted);
 }
@@ -426,6 +460,13 @@ h3 {
 
 .service-card strong {
   color: var(--teal-dark);
+}
+
+.price {
+  margin: 0;
+  color: var(--teal-dark);
+  font-size: 1.55rem;
+  font-weight: 900;
 }
 
 .membership-note {
@@ -484,6 +525,96 @@ h3 {
   margin: 0;
   color: var(--teal-dark);
   font-weight: 850;
+}
+
+.menu-card,
+.program-card,
+.faq-item,
+.dashboard-card,
+.ops-card,
+.request-card {
+  display: grid;
+  gap: 10px;
+}
+
+.menu-card {
+  border-top: 5px solid var(--citrus);
+}
+
+.menu-card span {
+  color: var(--coral);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.menu-card p {
+  margin: 0;
+  color: var(--teal-dark);
+  font-weight: 900;
+}
+
+.program-card {
+  border-top: 5px solid var(--leaf);
+}
+
+.program-card strong {
+  color: var(--teal-dark);
+}
+
+.faq-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.booking-summary {
+  padding: 14px 16px;
+  border: 1px solid rgba(8, 117, 104, 0.24);
+  border-radius: 8px;
+  background: #f2fbf7;
+  color: var(--teal-dark);
+  font-weight: 800;
+}
+
+.ops-metrics {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ops-metrics div {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfbf8;
+}
+
+.ops-metrics span {
+  display: block;
+  color: var(--teal-dark);
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.request-toolbar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.request-list {
+  display: grid;
+  gap: 14px;
+}
+
+.ops-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
 }
 
 .visit-copy {
@@ -615,6 +746,11 @@ textarea:focus {
   .feature-grid,
   .service-grid,
   .staff-grid,
+  .menu-grid,
+  .program-grid,
+  .faq-grid,
+  .dashboard-grid,
+  .ops-grid,
   .info-grid,
   .field-row {
     grid-template-columns: 1fr;
@@ -664,9 +800,19 @@ textarea:focus {
   .feature-card,
   .service-card,
   .staff-card,
+  .menu-card,
+  .program-card,
+  .faq-item,
+  .dashboard-card,
+  .ops-card,
+  .request-card,
   .membership-note,
   .info-card,
   .inquiry-form {
     padding: 18px;
+  }
+
+  .ops-metrics {
+    grid-template-columns: 1fr;
   }
 }
