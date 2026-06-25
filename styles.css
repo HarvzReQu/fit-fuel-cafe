@@ -338,14 +338,14 @@ h3 {
 }
 
 .staff-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
 }
 
 .menu-grid,
 .program-grid,
 .faq-grid,
 .ops-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 
 .dashboard-grid {
@@ -539,6 +539,35 @@ h3 {
 
 .menu-card {
   border-top: 5px solid var(--citrus);
+  background:
+    linear-gradient(145deg, rgba(255, 249, 232, 0.92), rgba(255, 255, 255, 0.96) 58%),
+    var(--surface);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-card:hover,
+.program-card:hover,
+.staff-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(24, 31, 38, 0.12);
+}
+
+.featured-menu {
+  border-color: #db4f7a;
+  background:
+    linear-gradient(145deg, rgba(255, 232, 241, 0.98), rgba(239, 250, 245, 0.95)),
+    var(--surface);
+}
+
+.featured-menu::after {
+  content: "Customer favorite";
+  justify-self: start;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(219, 79, 122, 0.12);
+  color: #a82755;
+  font-size: 0.78rem;
+  font-weight: 850;
 }
 
 .menu-card span {
@@ -557,10 +586,20 @@ h3 {
 
 .program-card {
   border-top: 5px solid var(--leaf);
+  background:
+    linear-gradient(145deg, rgba(240, 248, 228, 0.9), rgba(255, 255, 255, 0.96) 58%),
+    var(--surface);
 }
 
 .program-card strong {
   color: var(--teal-dark);
+}
+
+.featured-program {
+  border-color: var(--teal);
+  background:
+    linear-gradient(145deg, rgba(233, 247, 244, 0.95), rgba(255, 255, 255, 0.98) 60%),
+    var(--surface);
 }
 
 .faq-grid {

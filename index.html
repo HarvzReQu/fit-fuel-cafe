@@ -164,6 +164,21 @@
           <div class="staff-grid">
             <article class="staff-card coach-card">
               <span class="service-tag">Coach</span>
+              <h3>Timoteo</h3>
+              <p>Functional training, athletic conditioning, core work, and practical coaching for consistent progress.</p>
+              <dl>
+                <div>
+                  <dt>Duty</dt>
+                  <dd>Mon, Thu, Sun</dd>
+                </div>
+                <div>
+                  <dt>Time</dt>
+                  <dd>9:00 AM - 5:00 PM</dd>
+                </div>
+              </dl>
+            </article>
+            <article class="staff-card coach-card">
+              <span class="service-tag">Coach</span>
               <h3>Mia Santos</h3>
               <p>Strength basics, beginner routines, posture checks, and safe equipment setup.</p>
               <dl>
@@ -234,6 +249,11 @@
             <p class="section-lede">The cafe menu focuses on quick preparation, clear choices, and items that make sense before or after a workout.</p>
           </div>
           <div class="menu-grid">
+            <article class="menu-card featured-menu">
+              <span>Signature</span>
+              <h3>Strawberry Matcha</h3>
+              <p>PHP 145</p>
+            </article>
             <article class="menu-card">
               <span>Pre-workout</span>
               <h3>Iced Americano</h3>
@@ -264,6 +284,31 @@
               <h3>Chicken Wrap Pack</h3>
               <p>PHP 175</p>
             </article>
+            <article class="menu-card">
+              <span>Smoothie</span>
+              <h3>Mango Yogurt Smoothie</h3>
+              <p>PHP 155</p>
+            </article>
+            <article class="menu-card">
+              <span>Recovery</span>
+              <h3>Chocolate Protein Frappe</h3>
+              <p>PHP 185</p>
+            </article>
+            <article class="menu-card">
+              <span>Tea</span>
+              <h3>Honey Lemon Green Tea</h3>
+              <p>PHP 115</p>
+            </article>
+            <article class="menu-card">
+              <span>Snack</span>
+              <h3>Greek Yogurt Cup</h3>
+              <p>PHP 130</p>
+            </article>
+            <article class="menu-card">
+              <span>Energy</span>
+              <h3>Peanut Butter Energy Bites</h3>
+              <p>PHP 95</p>
+            </article>
           </div>
         </div>
       </section>
@@ -280,6 +325,11 @@
               <p>Equipment orientation, safe form basics, and a three-day starter routine.</p>
               <strong>Best with Mia Santos</strong>
             </article>
+            <article class="program-card featured-program">
+              <h3>Functional Fit</h3>
+              <p>Core, mobility, conditioning, and everyday strength for customers who want useful fitness.</p>
+              <strong>Best with Timoteo</strong>
+            </article>
             <article class="program-card">
               <h3>Strength Basics</h3>
               <p>Simple progressive weight training for members who want structure.</p>
@@ -294,6 +344,26 @@
               <h3>After-work Reset</h3>
               <p>A short, lower-pressure routine for workers who train in the evening.</p>
               <strong>Good with cafe combo</strong>
+            </article>
+            <article class="program-card">
+              <h3>Core and Mobility</h3>
+              <p>Stretching, balance, stability, and core drills for safer everyday movement.</p>
+              <strong>Best with Timoteo</strong>
+            </article>
+            <article class="program-card">
+              <h3>Student Energy Plan</h3>
+              <p>Affordable, time-efficient routines for students balancing classes and workouts.</p>
+              <strong>Good for Weekly Pass</strong>
+            </article>
+            <article class="program-card">
+              <h3>Cardio Builder</h3>
+              <p>Gradual treadmill and circuit sessions for stamina, endurance, and consistency.</p>
+              <strong>Good for beginners</strong>
+            </article>
+            <article class="program-card">
+              <h3>Weekend Warrior</h3>
+              <p>Focused weekend training for busy customers who cannot visit on weekdays.</p>
+              <strong>Good with Timoteo or Andre</strong>
             </article>
           </div>
         </div>
@@ -398,9 +468,14 @@
                 <select name="program" id="programSelect">
                   <option value="No program selected">No program selected</option>
                   <option value="Beginner Start">Beginner Start</option>
+                  <option value="Functional Fit">Functional Fit</option>
                   <option value="Strength Basics">Strength Basics</option>
                   <option value="Weight Loss Routine">Weight Loss Routine</option>
                   <option value="After-work Reset">After-work Reset</option>
+                  <option value="Core and Mobility">Core and Mobility</option>
+                  <option value="Student Energy Plan">Student Energy Plan</option>
+                  <option value="Cardio Builder">Cardio Builder</option>
+                  <option value="Weekend Warrior">Weekend Warrior</option>
                 </select>
               </label>
             </div>
@@ -442,12 +517,18 @@
                 Drink preference
                 <select name="drink" id="drinkSelect">
                   <option value="No drink selected">No drink selected</option>
+                  <option value="Strawberry Matcha - PHP 145">Strawberry Matcha - PHP 145</option>
                   <option value="Iced Americano - PHP 95">Iced Americano - PHP 95</option>
                   <option value="Banana Protein Shake - PHP 160">Banana Protein Shake - PHP 160</option>
                   <option value="Citrus Electrolyte Cooler - PHP 120">Citrus Electrolyte Cooler - PHP 120</option>
                   <option value="Oat Bar + Bottled Water - PHP 105">Oat Bar + Bottled Water - PHP 105</option>
                   <option value="Post-workout Shake Combo - PHP 220">Post-workout Shake Combo - PHP 220</option>
                   <option value="Chicken Wrap Pack - PHP 175">Chicken Wrap Pack - PHP 175</option>
+                  <option value="Mango Yogurt Smoothie - PHP 155">Mango Yogurt Smoothie - PHP 155</option>
+                  <option value="Chocolate Protein Frappe - PHP 185">Chocolate Protein Frappe - PHP 185</option>
+                  <option value="Honey Lemon Green Tea - PHP 115">Honey Lemon Green Tea - PHP 115</option>
+                  <option value="Greek Yogurt Cup - PHP 130">Greek Yogurt Cup - PHP 130</option>
+                  <option value="Peanut Butter Energy Bites - PHP 95">Peanut Butter Energy Bites - PHP 95</option>
                 </select>
               </label>
               <label>
@@ -476,7 +557,7 @@
     <script>
       const staffSchedule = {
         Monday: {
-          coaches: ['Mia Santos - 6:00 AM - 2:00 PM'],
+          coaches: ['Timoteo - 9:00 AM - 5:00 PM', 'Mia Santos - 6:00 AM - 2:00 PM'],
           baristas: ['Lena Reyes - 7:00 AM - 3:00 PM']
         },
         Tuesday: {
@@ -488,7 +569,7 @@
           baristas: ['Lena Reyes - 7:00 AM - 3:00 PM']
         },
         Thursday: {
-          coaches: ['Andre Cruz - 1:00 PM - 9:00 PM'],
+          coaches: ['Timoteo - 9:00 AM - 5:00 PM', 'Andre Cruz - 1:00 PM - 9:00 PM'],
           baristas: ['Lena Reyes - 7:00 AM - 3:00 PM']
         },
         Friday: {
@@ -500,7 +581,7 @@
           baristas: ['Nico Tan - 10:00 AM - 6:00 PM']
         },
         Sunday: {
-          coaches: [],
+          coaches: ['Timoteo - 9:00 AM - 5:00 PM'],
           baristas: ['Nico Tan - 10:00 AM - 6:00 PM']
         }
       };
