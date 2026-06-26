@@ -20,6 +20,7 @@
         <a href="index.html#staff">Staff</a>
         <a href="index.html#menu">Menu</a>
         <a href="index.html#programs">Programs</a>
+        <a href="index.html#guide">Guide</a>
         <a href="index.html#visit">Visit</a>
         <a href="admin.html">Admin</a>
         <a href="contact.html">Contact</a>
@@ -72,6 +73,20 @@
               <label>
                 Email
                 <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+            </div>
+            <div class="field-row">
+              <label>
+                Phone or text contact
+                <input type="tel" name="phone" placeholder="Optional phone number" />
+              </label>
+              <label>
+                Preferred reply
+                <select name="replyPreference">
+                  <option value="Email">Email</option>
+                  <option value="Phone call">Phone call</option>
+                  <option value="Text message">Text message</option>
+                </select>
               </label>
             </div>
             <label>
@@ -127,6 +142,7 @@
               <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
             </label>
             <button type="submit" class="btn btn-primary">Send message</button>
+            <p class="form-note">Submitting this form prepares an email. Please press send in your email app so staff can receive it.</p>
             <p id="contactMessage" class="form-message" role="status"></p>
           </form>
         </div>
@@ -147,6 +163,8 @@
         const data = new FormData(contactForm);
         const name = data.get('name')?.toString().trim() || 'a visitor';
         const email = data.get('email')?.toString().trim() || 'no email provided';
+        const phone = data.get('phone')?.toString().trim() || 'No phone provided';
+        const replyPreference = data.get('replyPreference')?.toString().trim() || 'Email';
         const topic = data.get('topic')?.toString().trim() || 'general inquiry';
         const coach = data.get('coach')?.toString().trim() || 'No coach preference';
         const barista = data.get('barista')?.toString().trim() || 'No barista preference';
@@ -155,10 +173,10 @@
         const message = data.get('message')?.toString().trim() || 'No additional details provided.';
 
         const subject = encodeURIComponent(`Contact request from ${name} about ${topic}`);
-        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nTopic: ${topic}\nPreferred coach: ${coach}\nPreferred barista: ${barista}\nPreferred visit: ${visitDay}, ${visitTime}\n\nMessage:\n${message}`);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nPreferred reply: ${replyPreference}\nTopic: ${topic}\nPreferred coach: ${coach}\nPreferred barista: ${barista}\nPreferred visit: ${visitDay}, ${visitTime}\n\nMessage:\n${message}`);
 
         window.location.href = `mailto:johnharveyrequioma@gmail.com,johnrequioma98@icloud.com?subject=${subject}&body=${body}`;
-        contactMessage.textContent = 'Your email app should open with your message ready to send.';
+        contactMessage.textContent = 'Your email app should open with your message ready; please press send there to submit it.';
         contactForm.reset();
       });
     </script>

@@ -320,6 +320,8 @@ h3 {
 .staff-grid,
 .menu-grid,
 .program-grid,
+.journey-grid,
+.guide-grid,
 .faq-grid,
 .dashboard-grid,
 .ops-grid,
@@ -343,6 +345,8 @@ h3 {
 
 .menu-grid,
 .program-grid,
+.journey-grid,
+.guide-grid,
 .faq-grid,
 .ops-grid {
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -357,6 +361,8 @@ h3 {
 .staff-card,
 .menu-card,
 .program-card,
+.journey-card,
+.guide-card,
 .faq-item,
 .dashboard-card,
 .ops-card,
@@ -415,6 +421,8 @@ h3 {
 .staff-card p,
 .menu-card p,
 .program-card p,
+.journey-card p,
+.guide-card p,
 .faq-item p,
 .dashboard-card p,
 .ops-card p,
@@ -487,6 +495,13 @@ h3 {
   color: var(--muted);
 }
 
+.fine-print,
+.form-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 .staff-card {
   display: grid;
   gap: 12px;
@@ -529,6 +544,8 @@ h3 {
 
 .menu-card,
 .program-card,
+.journey-card,
+.guide-card,
 .faq-item,
 .dashboard-card,
 .ops-card,
@@ -600,6 +617,71 @@ h3 {
   background:
     linear-gradient(145deg, rgba(233, 247, 244, 0.95), rgba(255, 255, 255, 0.98) 60%),
     var(--surface);
+}
+
+.journey-card {
+  border-top: 5px solid var(--teal);
+}
+
+.journey-card span {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--teal-dark);
+  color: white;
+  font-weight: 900;
+}
+
+.guide-grid {
+  margin-top: 18px;
+}
+
+.guide-card {
+  border-left: 5px solid var(--citrus);
+}
+
+.guide-card ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.availability-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 12px 30px rgba(24, 31, 38, 0.07);
+}
+
+.availability-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+}
+
+.availability-table th,
+.availability-table td {
+  padding: 15px 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.availability-table th {
+  background: #eef3ed;
+  color: var(--teal-dark);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.availability-table tr:last-child td {
+  border-bottom: 0;
 }
 
 .faq-grid {
@@ -787,6 +869,8 @@ textarea:focus {
   .staff-grid,
   .menu-grid,
   .program-grid,
+  .journey-grid,
+  .guide-grid,
   .faq-grid,
   .dashboard-grid,
   .ops-grid,
@@ -841,6 +925,8 @@ textarea:focus {
   .staff-card,
   .menu-card,
   .program-card,
+  .journey-card,
+  .guide-card,
   .faq-item,
   .dashboard-card,
   .ops-card,

@@ -17,6 +17,7 @@
         <a href="index.html#services">Services</a>
         <a href="index.html#staff">Staff</a>
         <a href="index.html#menu">Menu</a>
+        <a href="index.html#guide">Guide</a>
         <a href="index.html#inquiry">Booking</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -150,6 +151,8 @@
               <h3>${escapeHtml(request.name)}</h3>
               <p><strong>Created:</strong> ${escapeHtml(request.createdAt)}</p>
               <p><strong>Email:</strong> ${escapeHtml(request.email)}</p>
+              <p><strong>Phone:</strong> ${escapeHtml(request.phone || 'No phone provided')}</p>
+              <p><strong>Preferred reply:</strong> ${escapeHtml(request.replyPreference || 'Email')}</p>
               <p><strong>Pass:</strong> ${escapeHtml(request.pass)}</p>
               <p><strong>Visit:</strong> ${escapeHtml(request.visitDay)}, ${escapeHtml(request.visitTime)}</p>
               <p><strong>Coach:</strong> ${escapeHtml(request.coach)}</p>
@@ -176,7 +179,7 @@
 
       function downloadCsv() {
         const requests = getRequests();
-        const headers = ['createdAt', 'name', 'email', 'pass', 'program', 'coach', 'barista', 'visitDay', 'visitTime', 'drink', 'goal'];
+        const headers = ['createdAt', 'name', 'email', 'phone', 'replyPreference', 'pass', 'program', 'coach', 'barista', 'visitDay', 'visitTime', 'drink', 'goal'];
         const lines = [
           headers.join(','),
           ...requests.map(function (request) {
