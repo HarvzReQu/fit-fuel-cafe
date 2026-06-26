@@ -47,7 +47,7 @@
           </article>
           <article class="info-card">
             <h3>Email</h3>
-            <p>info@fitandfuelcafe.com</p>
+            <p>johnharveyrequioma@gmail.com<br />johnrequioma98@icloud.com</p>
           </article>
           <article class="info-card">
             <h3>Location</h3>
@@ -157,7 +157,7 @@
         const subject = encodeURIComponent(`Contact request from ${name} about ${topic}`);
         const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nTopic: ${topic}\nPreferred coach: ${coach}\nPreferred barista: ${barista}\nPreferred visit: ${visitDay}, ${visitTime}\n\nMessage:\n${message}`);
 
-        window.location.href = `mailto:info@fitandfuelcafe.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:johnharveyrequioma@gmail.com,johnrequioma98@icloud.com?subject=${subject}&body=${body}`;
         contactMessage.textContent = 'Your email app should open with your message ready to send.';
         contactForm.reset();
       });
